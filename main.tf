@@ -21,7 +21,7 @@ EOF
 
 resource "aws_iam_instance_profile" "jenkins" {
     name = "${var.project}-jenkins"
-    role = ["jenkins"]
+    role = "jenkins"
 }
 
 resource "aws_iam_role_policy" "jenkins" {
