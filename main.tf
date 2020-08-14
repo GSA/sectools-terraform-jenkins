@@ -67,6 +67,13 @@ resource "aws_security_group" "jenkins" {
     cidr_blocks = var.jump_host_cidr_list
   }
 
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags = {
     Name = "${var.project}-jenkins"
     Environment = var.app_env
