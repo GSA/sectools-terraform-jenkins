@@ -32,6 +32,9 @@ variable "jump_host_cidr_list" {
   type = list
 }
 
+variable "env" {
+  type = string
+}
 
 variable "project" {
   type = string
