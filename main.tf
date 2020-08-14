@@ -69,7 +69,7 @@ resource "aws_security_group" "jenkins" {
 
   tags = {
     Name = "${var.project}-jenkins"
-    Environment = var.app_env
+    #Environment = var.app_env
   }  
 }
 
