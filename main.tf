@@ -21,7 +21,7 @@ EOF
 
 resource "aws_iam_instance_profile" "jenkins" {
     name = "${var.project}-jenkins"
-    role = "jenkins"
+    role = "${aws_iam_role.jenkins.name}"
 }
 
 resource "aws_iam_role_policy" "jenkins" {
@@ -54,17 +54,17 @@ resource "aws_security_group" "jenkins" {
   description = "Security Group for allowing access to and from the Jenkins host(s)."
   # SSH access from jump hosts
   ingress {
-      from_port   = 22
-      to_port     = 22
-      protocol    = "tcp"
-      cidr_blocks = var.jump_host_cidr_list
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = var.jump_host_cidr_list
   }
 
   ingress {
     from_port = 8080
     to_port = 8080
     protocol = "tcp"
-    security_groups = var.jump_host_cidr_list
+    cidr_blocks = var.jump_host_cidr_list
   }
 
   tags = {
