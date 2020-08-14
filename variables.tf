@@ -32,7 +32,7 @@ variable "jump_host_cidr_list" {
   type = list
 }
 
-variable "env" {
+variable "app_env" {
   type = string
 }
 
