@@ -32,6 +32,11 @@ variable "jump_host_cidr_list" {
   type = list
 }
 
+variable "ecr_arn" {
+  description = "ECR ARN"
+  type = string
+}
+
 variable "app_env" {
   type = string
 }

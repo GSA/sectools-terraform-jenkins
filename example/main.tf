@@ -18,4 +18,6 @@ module "jenkins" {
   ami_id                = var.ami_id
   jump_host_cidr_list   = var.jump_host_cidr_list
   app_env               = var.app_evn
+  project               = var.project
+  ecr_arn               = var.ecr_arn
 }
