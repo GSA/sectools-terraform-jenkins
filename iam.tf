@@ -79,49 +79,47 @@ resource "aws_iam_policy" "jenkins" {
       "Resource": ["arn:aws:s3:::*"]
     },
     {
-        "Sid": "VisualEditor1",
-        "Effect": "Allow",
-        "Action": [
-            "ecr:PutImageTagMutability",
-            "ecr:StartImageScan",
-            "ecr:ListTagsForResource",
-            "ecr:BatchDeleteImage",
-            "ecr:UploadLayerPart",
-            "ecr:ListImages",
-            "ecr:DeleteRepository",
-            "ecr:CompleteLayerUpload",
-            "ecr:TagResource",
-            "ecr:DescribeRepositories",
-            "ecr:DeleteRepositoryPolicy",
-            "ecr:BatchCheckLayerAvailability",
-            "ecr:GetLifecyclePolicy",
-            "ecr:PutLifecyclePolicy",
-            "ecr:DescribeImageScanFindings",
-            "ecr:CreateRepository",
-            "ecr:GetLifecyclePolicyPreview",
-            "ecr:GetDownloadUrlForLayer",
-            "ecr:PutImageScanningConfiguration",
-            "ecr:DeleteLifecyclePolicy",
-            "ecr:PutImage",
-            "ecr:UntagResource",
-            "ecr:BatchGetImage",
-            "ecr:DescribeImages",
-            "ecr:StartLifecyclePolicyPreview",
-            "ecr:InitiateLayerUpload",
-            "ecr:GetRepositoryPolicy",
-            "ecr:GetAuthorizationToken"
-        ],
-        "Resource": [
-            "arn:aws:ecr:us-east-1:627566894399:repository/sectools-hardened"
-        ]  
+      "Effect": "Allow",
+      "Action": [
+          "ecr:PutImageTagMutability",
+          "ecr:StartImageScan",
+          "ecr:ListTagsForResource",
+          "ecr:BatchDeleteImage",
+          "ecr:UploadLayerPart",
+          "ecr:ListImages",
+          "ecr:DeleteRepository",
+          "ecr:CompleteLayerUpload",
+          "ecr:TagResource",
+          "ecr:DescribeRepositories",
+          "ecr:DeleteRepositoryPolicy",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetLifecyclePolicy",
+          "ecr:PutLifecyclePolicy",
+          "ecr:DescribeImageScanFindings",
+          "ecr:CreateRepository",
+          "ecr:GetLifecyclePolicyPreview",
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:PutImageScanningConfiguration",
+          "ecr:DeleteLifecyclePolicy",
+          "ecr:PutImage",
+          "ecr:UntagResource",
+          "ecr:BatchGetImage",
+          "ecr:DescribeImages",
+          "ecr:StartLifecyclePolicyPreview",
+          "ecr:InitiateLayerUpload",
+          "ecr:GetRepositoryPolicy",
+          "ecr:GetAuthorizationToken"
+      ],
+      "Resource": [
+          "arn:aws:ecr:us-east-1:627566894399:repository/sectools-hardened"
+      ]  
     },
     {
-        "Sid": "VisualEditor1",
-        "Effect": "Allow",
-        "Action": [
-            "ecr:GetAuthorizationToken"
-        ],
-        "Resource": ["*"]  
+      "Effect": "Allow",
+      "Action": [
+          "ecr:GetAuthorizationToken"
+      ],
+      "Resource": ["*"]  
     }
   ]
 }
