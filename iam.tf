@@ -116,6 +116,7 @@ resource "aws_iam_policy" "jenkins" {
             "Resource": [
                 "arn:aws:ecr:us-east-1:627566894399:repository/sectools-hardened"
             ]  
+        }
   ]
 }
 EOF
