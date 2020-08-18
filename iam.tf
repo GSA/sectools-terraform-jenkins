@@ -108,7 +108,8 @@ resource "aws_iam_policy" "jenkins" {
                 "ecr:DescribeImages",
                 "ecr:StartLifecyclePolicyPreview",
                 "ecr:InitiateLayerUpload",
-                "ecr:GetRepositoryPolicy"
+                "ecr:GetRepositoryPolicy",
+                "ecr:GetAuthorizationToken"
             ],
             "Resource": [
                 "arn:aws:ecr:us-east-1:627566894399:repository/sectools-hardened"
