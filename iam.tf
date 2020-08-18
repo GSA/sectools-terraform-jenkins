@@ -46,9 +46,6 @@ resource "aws_iam_user" "jenkins" {
 
 resource "aws_iam_group" "jenkins" {
   name = "${var.project}-jenkins"
-  tags = {
-      Name = "${var.project}-jenkins"
-  }
 }
 
 resource "aws_iam_group_policy_attachment" "jenkins" {
