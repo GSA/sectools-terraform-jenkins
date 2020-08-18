@@ -111,16 +111,8 @@ resource "aws_iam_policy" "jenkins" {
           "ecr:GetAuthorizationToken"
       ],
       "Resource": [
-          "arn:aws:ecr:us-east-1:627566894399:repository/sectools-hardened",
-          "arn:aws:ecr:us-east-1:627566894399:repository/sectools-hardened/*"
+          "arn:aws:ecr:us-east-1:*"
       ]  
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-          "ecr:GetAuthorizationToken"
-      ],
-      "Resource": ["*"]  
     }
   ]
 }
