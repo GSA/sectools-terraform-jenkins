@@ -4,8 +4,8 @@
 ## Role configuration
 
 resource "aws_iam_role" "jenkins" {
-    name = "${var.project}-jenkins"
-    assume_role_policy = <<EOF
+  name               = "${var.project}-jenkins"
+  assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -28,8 +28,8 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 }
 
 resource "aws_iam_instance_profile" "jenkins" {
-    name = "${var.project}-jenkins"
-    role = "${aws_iam_role.jenkins.name}"
+  name = "${var.project}-jenkins"
+  role = aws_iam_role.jenkins.name
 }
 
 ## User Configuration
@@ -38,7 +38,7 @@ resource "aws_iam_user" "jenkins" {
   name = "${var.project}-jenkins"
   path = "/system/"
   tags = {
-      Name = "${var.project}-jenkins"
+    Name = "${var.project}-jenkins"
   }
 }
 
@@ -63,7 +63,7 @@ resource "aws_iam_group_membership" "jenkins" {
 }
 
 resource "aws_iam_policy" "jenkins" {
-  name = "${var.project}-jenkins"
+  name   = "${var.project}-jenkins"
   policy = <<EOF
 {
   "Version": "2012-10-17",

@@ -1,16 +1,16 @@
 variable "subnet_private_id" {
-  type = string
+  type        = string
   description = "Subnet ID for EC2 instance in AZ 1a"
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "ID of the VPC "
 }
 
 variable "instance_type" {
   description = "EC2 instance type"
-  type = string
+  type        = string
 }
 
 variable "instance_name" {
@@ -19,7 +19,7 @@ variable "instance_name" {
 
 
 variable "aws_key_name" {
-  type = string
+  type        = string
   description = "aws ec2 key name used to authenticate onto jump server"
 }
 
@@ -29,12 +29,12 @@ variable "ami_id" {
 
 variable "jump_host_cidr_list" {
   description = "cidr block allowed to ssh and browse to jenkins server"
-  type = list
+  type        = list(any)
 }
 
 variable "ecr_arn" {
   description = "ECR ARN"
-  type = string
+  type        = string
 }
 
 variable "app_env" {
