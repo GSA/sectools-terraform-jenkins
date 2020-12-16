@@ -1,5 +1,3 @@
-
-
 # Security Groups
 
 resource "aws_security_group" "jenkins" {
@@ -34,20 +32,18 @@ resource "aws_security_group" "jenkins" {
   }
 }
 
-# Create instances
-
-## Jenkins host
-
-resource "aws_instance" "jenkins_1" {
+resource "aws_instance" "jenkins_host" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
   subnet_id              = var.subnet_private_id
-  vpc_security_group_ids = ["${aws_security_group.jenkins.id}"]
+  vpc_security_group_ids = [aws_security_group.jenkins.id]
   iam_instance_profile   = aws_iam_instance_profile.jenkins.id
   key_name               = var.aws_key_name
+
   root_block_device {
     volume_size = 200
   }
+
   tags = {
     Name        = "${var.project}-${var.instance_name}"
     Environment = var.app_env
