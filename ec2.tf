@@ -45,10 +45,10 @@ resource "aws_instance" "jenkins_host" {
   }
 
   ebs_block_device {
-    device_name = "/dev/xvdf"
-    volume_size = "200"
+    device_name           = "/dev/xvdf"
+    volume_size           = "200"
     delete_on_termination = "false"
-    encrypted = "true"
+    encrypted             = "true"
   }
 
   tags = {
