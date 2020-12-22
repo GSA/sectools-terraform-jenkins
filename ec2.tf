@@ -41,11 +41,6 @@ resource "aws_instance" "jenkins_host" {
   key_name               = var.aws_key_name
 
   root_block_device {
-    volume_size = 80
-  }
-
-  ebs_block_device {
-    device_name           = "/dev/xvdf"
     volume_size           = "200"
     delete_on_termination = "false"
     encrypted             = "true"
