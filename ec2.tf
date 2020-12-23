@@ -1,10 +1,8 @@
-
-
 # Security Groups
 
 resource "aws_security_group" "jenkins" {
-  name = "${var.project}-jenkins"
-  vpc_id = var.vpc_id
+  name        = "${var.project}-jenkins"
+  vpc_id      = var.vpc_id
   description = "Security Group for allowing access to and from the Jenkins host(s)."
   # SSH access from jump hosts
   ingress {
@@ -15,9 +13,9 @@ resource "aws_security_group" "jenkins" {
   }
 
   ingress {
-    from_port = 8080
-    to_port = 8080
-    protocol = "tcp"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
     cidr_blocks = var.jump_host_cidr_list
   }
 
@@ -29,27 +27,27 @@ resource "aws_security_group" "jenkins" {
   }
 
   tags = {
-    Name = "${var.project}-jenkins"
+    Name        = "${var.project}-jenkins"
     Environment = var.app_env
-  }  
+  }
 }
 
-# Create instances
+resource "aws_instance" "jenkins_host" {
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  subnet_id              = var.subnet_private_id
+  vpc_security_group_ids = [aws_security_group.jenkins.id]
+  iam_instance_profile   = aws_iam_instance_profile.jenkins.id
+  key_name               = var.aws_key_name
 
-## Jenkins host
-
-resource "aws_instance" "jenkins_1" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  subnet_id = var.subnet_private_id
-  vpc_security_group_ids = ["${aws_security_group.jenkins.id}"]
-  iam_instance_profile = aws_iam_instance_profile.jenkins.id
-  key_name = var.aws_key_name
   root_block_device {
-    volume_size = 200
+    volume_size           = "200"
+    delete_on_termination = "false"
+    encrypted             = "true"
   }
+
   tags = {
-    Name = "${var.project}-${var.instance_name}"
+    Name        = "${var.project}-${var.instance_name}"
     Environment = var.app_env
   }
 }
